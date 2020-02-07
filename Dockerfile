@@ -14,10 +14,8 @@ EXPOSE 3000
 
 #RUN ln -s /usr/bin/nodejs /usr/bin/node........;;;;;
 
-RUN npm install -g http-server
-
 ADD . /usr/apps/hello-docker/
 
 ADD index.js /usr/apps/hello-docker/index.js
 
-CMD ["http-server", "-s"]
+CMD ["node", "index.js"]
