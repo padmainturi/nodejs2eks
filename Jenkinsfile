@@ -24,6 +24,6 @@ pipeline {  environment {
           docker.build registry + ":$BUILD_NUMBER"
         }
       }
-    
+    }
   }
 }
