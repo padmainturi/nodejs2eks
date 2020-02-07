@@ -1,6 +1,7 @@
 pipeline {  environment {
     registry = "anchaubey/docker_node_build"
     registryCredential = 'docker_ID'
+    dockerImage = ''
   }
   agent any
     
@@ -26,16 +27,14 @@ pipeline {  environment {
       }
     }
     stage('Deploy Image') {
-      environment {
-               dockerImage = docker.build registry + ":$BUILD_NUMBER"
-           }
-      steps{    script {
-        docker.withRegistry( '', registryCredential ) {
-          dockerImage.push()
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
       }
     }
-  }
-}
     stage('Remove Unused docker image') {
       steps{
         sh "docker rmi $registry:$BUILD_NUMBER"
