@@ -10,6 +10,8 @@ RUN apt-get install -y nodejs
 
 RUN apt-get install -y npm
 
+RUN npm install express
+
 EXPOSE 3000
 
 #RUN ln -s /usr/bin/nodejs /usr/bin/node........;;;;;
