@@ -1,6 +1,9 @@
-pipeline {
+pipeline {  environment {
+    registry = "anchaubey/docker_node_build"
+    registryCredential = 'docker_ID'
+  }
   agent any
-     
+    
   stages {
         
     stage('Git') {
@@ -14,5 +17,13 @@ pipeline {
         sh 'npm install'
       }
     }  
+    
+    stage('Building image') {
+      steps{
+        script {
+          docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
+    
   }
 }
