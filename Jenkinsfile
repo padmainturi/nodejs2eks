@@ -1,6 +1,6 @@
 pipeline {
    environment {
-     dockerRegistry = "anchaubey/docker_node_build"
+     dockerRegistry = "anchaubey/nodenewapp"
      dockerRegistryCredential = 'docker_ID'
      dockerImage = ''
    }
