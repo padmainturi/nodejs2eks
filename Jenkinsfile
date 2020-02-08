@@ -1,9 +1,6 @@
 pipeline {
 
-  properties([
-    [$class: 'jenkins.model.BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '10']],
-    pipelineTriggers([[$class:"SCMTrigger", scmpoll_spec:"* * * * *"]]),
-    ])
+  properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')), pipelineTriggers([pollSCM('* * * * *')])])
 
    environment {
      dockerRegistry = "anchaubey/nodenewapp"
@@ -14,7 +11,7 @@ pipeline {
    stages {
      stage('Cloning Git') {
        steps {
-          git branch: 'master', url: 'https://github.com/anchaubey/nodejs-sample-app.git'   
+          checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'GITHUB_LOGIN', url: 'https://github.com/anchaubey/nodejs-sample-app.git']]]   
        }
      }
      stage('Build') {
