@@ -1,11 +1,9 @@
 pipeline {
-   
-   properties([
-     buildDiscarder(logRotator(numToKeepStr: '10')),
-     pipelineTriggers([
-        pollSCM('* * * * *')
+
+  properties([
+    [$class: 'jenkins.model.BuildDiscarderProperty', strategy: [$class: 'LogRotator', numToKeepStr: '10']],
+    pipelineTriggers([[$class:"SCMTrigger", scmpoll_spec:"* * * * *"]]),
     ])
-  ])
 
    environment {
      dockerRegistry = "anchaubey/nodenewapp"
