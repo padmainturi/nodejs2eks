@@ -34,4 +34,4 @@ we have see all the running pods running "kubect get po".
 
 To see the created service, we shall run "kubectl get svc"
 
-I was facing issues using minikube on my laptop, and therefore I have used kubernetes cluster already setup on my laptop.
+I was facing issues using minikube on my laptop, and therefore I have used kubernetes cluster already setup on my laptop. 
