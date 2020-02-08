@@ -38,7 +38,7 @@ pipeline {
          sh "docker rmi $dockerRegistry:$BUILD_NUMBER"
        }
      }
-     stage('SendEmailNotification'){
+     steps('SendEmailNotification'){
        mail bcc: '', body: '''BUILD has complete succesfully
 
       Regards,
