@@ -11,6 +11,7 @@ ii) Dockerize the nodejs app
 iii) Pulish docker image to dockerhub
 
 2) We have a Dockerfile that is used to build the docker image.
+
 Plugin installed for docker build and push:- CloudBees Docker Build and Publish plugin
 
 Also, docker_ID credentials has been created under credentails section for Docker Hub authentication(within Jenkinsfile)
@@ -19,7 +20,9 @@ Also, docker_ID credentials has been created under credentails section for Docke
 We have to run below commands for pods and service creation:
 
 kubectl create -f pods.yaml
+
 kubectl create -f service.yaml
+
 we have see all the running pods running "kubect get po".
 To see the created service, we shall run "kubectl get svc"
 
