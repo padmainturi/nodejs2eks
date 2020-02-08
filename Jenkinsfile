@@ -38,14 +38,12 @@ pipeline {
          sh "docker rmi $dockerRegistry:$BUILD_NUMBER"
        }
      }
-     stage('SendEmailNotification')
-     {
- 
-     mail bcc: '', body: '''BUILD has complete succesfully
+     stage('SendEmailNotification'){
+       mail bcc: '', body: '''BUILD has complete succesfully
 
-Regards,
-Ankit Chaubey
-8860379656''', cc: '', from: '', replyTo: '', subject: 'BUILD has complete succesfully', to: 'ankitchaubey091987@gmail.com'
+      Regards,
+      Ankit Chaubey
+      8860379656''', cc: '', from: '', replyTo: '', subject: 'BUILD has complete succesfully', to: 'ankitchaubey091987@gmail.com'
      }
    }
  }
