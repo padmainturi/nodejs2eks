@@ -1,6 +1,6 @@
 pipeline {
 
-  properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')), pipelineTriggers([pollSCM('* * * * *')])])
+  options([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10')), pipelineTriggers([pollSCM('* * * * *')])])
 
    environment {
      dockerRegistry = "anchaubey/nodenewapp"
