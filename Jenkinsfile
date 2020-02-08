@@ -41,11 +41,11 @@ pipeline {
      stage('SendEmailNotification')
      {
  
- emailext body: '''Build is over
+     emailext body: '''The Build has completed successfully.
 
- Regards,
- Ankit Chaubey,
- 8860379656''', subject: 'Buid is over', to: 'ankitchaubey091987@gmail.com'
+Regards,
+Ankit Chaubey
+8860379656''', recipientProviders: [upstreamDevelopers()], subject: 'The Build has completed', to: 'ankitchaubey091987@gmail.com'
      }
    }
  }
