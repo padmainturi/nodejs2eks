@@ -1,7 +1,5 @@
 name: Deploy to ECR
-
 on:
- 
   push:
     branches: [ main ]
 
@@ -31,7 +29,7 @@ jobs:
       id: tag_version
       uses: mathieudutour/github-tag-action@v5.6
       with:
-        GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }}
+        github_token: ${{ secrets.SECRET_TOKEN }}
     - name: Create a GitHub release
       id: create_release
       uses: actions/create-release@v1
