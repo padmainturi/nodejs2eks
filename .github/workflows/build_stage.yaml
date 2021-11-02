@@ -24,13 +24,14 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
+        GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }}
     - name: Extract Git Tag
       run: echo "GIT_TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
     - name: Bump version and push tag
       id: tag_version
       uses: mathieudutour/github-tag-action@v5.6
       with:
-        github_token: ${{ secrets.SECRET_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }}
         tag_prefix: nodejs-v
     - name: Create a GitHub release
       id: create_release
