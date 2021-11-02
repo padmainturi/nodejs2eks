@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: nodeapp
-        image: anchaubey/nodenewapp:13
+        image: prabhasa123/nodeapp:latest
