@@ -1,0 +1,15 @@
+services:
+  web:
+    image: 818444240144.dkr.ecr.us-east-1.amazonaws.com/nodejsrepostage:latest
+    port: 3000
+    #certificate: 
+    #domain: 
+    scale:
+      count: 1
+      cpu: 1024
+      memory: 1024
+    health:
+      grace: 15
+      interval: 120
+      path: /
+      timeout: 10
